@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Q&A</title>
+  </head>
+  <body>
+    <div class="selector">
+      <select
+        name="chapter"
+        id="chapterselect"
+        onchange="ChapterSelect()"
+      ></select>
+      <select
+        name="subchapter"
+        id="subchapterselect"
+        onchange="SubChapterSelect()"
+      ></select>
+      <button class="scroll-toggle" onclick="ScrollToggle()">
+        Toggle Scrollbar
+      </button>
+    </div>
+    <section class="contents">
+      <iframe frameborder="0" class="frame noscroll"></iframe>
+    </section>
+  </body>
+  <script src="script.js"></script>
+</html>
