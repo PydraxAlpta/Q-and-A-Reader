@@ -10,7 +10,7 @@ const Chapters = [
   'Chapter 9 - The God King',
   'Chapter 10 - Power Of',
   'Chapter 11 - The Question',
-  'Chapter 12 - Q_',
+  'Chapter 12 - Q&',
   'Chapter 13 - A',
   'Finale - Inherited Fates',
   'The Epilogue - A Future We Desire',
