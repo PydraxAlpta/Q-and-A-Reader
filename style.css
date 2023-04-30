@@ -1,41 +1,106 @@
 body {
-    background: #36393ecc;
+  background: #36393ecc;
 }
+
 .contents {
-    height: 90vh;
-    overflow-x: clip;
+  height: 87vh;
+  overflow-x: clip;
 }
+
 .frame {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
+
 .frame.noscroll {
-    width: 102%;
+  width: 102%;
 }
+
 .selector {
-    margin: 0.5em;
-    display: flex;
+  margin: 0.5em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-.selector select {
-    flex: 1;
-    padding: 0.25em;
-    margin: 0.5em;
-    width: 100%;
-    height: 3em;
-    background: #36393e99;
-    color: white;
-    border: 1px solid slategray;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.selector select,
+button {
+  flex: 1;
+  padding: 0.25em;
+  margin: 0.5em;
+  width: 100%;
+  height: 3em;
+  background: #36393e99;
+  color: white;
+  border: 1px solid slategray;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+button:disabled {
+  filter: opacity(0.3);
+  pointer-events: none;
+}
+
+.selector button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .selector option {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .scroll-toggle {
-    background: #36393e99;
-    color: white;
-    border: 1px solid slategray;
-    margin: 0.5em;
-    padding: 1em;
-    height: 3em;
+  background: #36393e99;
+  color: white;
+  border: 1px solid slategray;
+  margin: 0.5em;
+  padding: 0.5em;
+  height: 3em;
+}
+@media screen and (width < 800px) {
+  .selector button.scroll-toggle {
+    display: none;
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  color: white;
+}
+
+.loading span {
+  margin: 0 0.5em;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border-color: white;
+  border-style: solid dashed solid dotted;
+  border-width: 3px;
+  animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
 }

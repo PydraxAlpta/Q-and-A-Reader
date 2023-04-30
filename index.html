@@ -4,33 +4,58 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Online reader for archive of D&D game Q&A." />
+    <meta
+      name="description"
+      content="Online reader for archive of D&D game Q&A."
+    />
     <meta name="application-name" content="Q & A Reader" />
-    <meta name="author" content="Pydrax Alpta(website), Natyobb(archive), Don'tAtmey(author)" />
+    <meta
+      name="author"
+      content="Pydrax Alpta(website), Natyobb(archive), Don'tAtmey(author)"
+    />
     <meta name="og:title" content="Q & A Reader" />
     <meta name="og:type" content="website" />
-    <meta name="og:description" content="Online reader for archive of D&D game Q&A" />
+    <meta
+      name="og:description"
+      content="Online reader for archive of D&D game Q&A"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Q & A Reader</title>
   </head>
   <body>
     <div class="selector">
-      <select
-        name="chapter"
-        id="chapterselect"
-        onchange="ChapterSelect()"
-      ></select>
-      <select
-        name="subchapter"
-        id="subchapterselect"
-        onchange="SubChapterSelect()"
-      ></select>
-      <button class="scroll-toggle" onclick="ScrollToggle()">
-        Toggle Scrollbar
-      </button>
+      <div class="row">
+        <button
+          id="prev-chapter"
+          name="prev-chapter"
+          onclick="onButtonClick(event)"
+        >
+          Previous Chapter
+        </button>
+        <button
+        id="next-chapter"
+        name="next-chapter"
+        onclick="onButtonClick(event)"
+            >
+        Next Chapter
+            </button>
+      </div>
+      <div class="row">
+        <select
+          name="chapter"
+          id="chapterselect"
+          onchange="onChapterSelect()"
+        ></select>
+        <select
+          name="subchapter"
+          id="subchapterselect"
+          onchange="onSubChapterSelect()"
+        ></select>
+      </div>
     </div>
     <section class="contents">
-      <iframe frameborder="0" class="frame noscroll"></iframe>
+      <div id="loader" class="loading hidden"><span></span>Loading...</div>
+      <iframe frameborder="0" class="frame"></iframe>
     </section>
   </body>
   <script src="script.js"></script>
