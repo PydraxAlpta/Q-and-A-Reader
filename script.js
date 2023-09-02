@@ -18,9 +18,13 @@ const chapters = [
 ];
 const folderName = "Q&A Full";
 /** @type {HTMLSelectElement} */
-const chapterSelect = document.querySelector("select#chapterselect");
+const chapterSelect = document.querySelector("#chapterselect");
 /** @type {HTMLSelectElement} */
-const subChapterSelect = document.querySelector("select#subchapterselect");
+const subChapterSelect = document.querySelector("#subchapterselect");
+/** @type {HTMLButtonElement} */
+const prevButton = document.querySelector("#prev-chapter");
+/** @type {HTMLButtonElement} */
+const nextButton = document.querySelector("#next-chapter");
 const iframe = document.querySelector("iframe");
 /** @type {NodeListOf<HTMLDivElement>}*/
 let premables;
@@ -67,12 +71,13 @@ function loadSubChapters() {
   });
   subChapterSelect.selectedIndex = 0;
 }
-function onButtonClick(event) {
-  switch (event.target.name) {
-    case "next-chapter":
+/** @param {'next' | 'prev'} action */
+function onButtonClick(action) {
+  switch (action) {
+    case "next":
       chapterSelect.selectedIndex++;
       break;
-    case "prev-chapter":
+    case "prev":
       chapterSelect.selectedIndex--;
       break;
   }
@@ -82,10 +87,18 @@ function onButtonClick(event) {
 function scrollToggle() {
   iframe.classList.toggle("noscroll");
 }
-window.onload = () => {
+window.addEventListener("load", () => {
+  addListeners();
   loadChapters();
   onChapterSelect();
-};
+});
+
+function addListeners() {
+  chapterSelect.addEventListener("change", onChapterSelect);
+  subChapterSelect.addEventListener("change", onSubChapterSelect);
+  nextButton.addEventListener("click", () => onButtonClick("next"));
+  prevButton.addEventListener("click", () => onButtonClick("prev"));
+}
 
 function toggleLoader() {
   iframe.classList.toggle("hidden");
